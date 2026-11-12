@@ -1,6 +1,6 @@
-/* MIND SAFE 2.3 · Service Worker */
+/* MIND SAFE 2.3.2 · Service Worker — corrección onboarding móvil */
 const CACHE_PREFIX='mindsafe-shell-';
-const CACHE_NAME=CACHE_PREFIX+'2.3.1';
+const CACHE_NAME=CACHE_PREFIX+'2.3.2';
 const CORE=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./logo-mark.png','./LOGO%202.jpg'];
 self.addEventListener('install',event=>{
   event.waitUntil((async()=>{

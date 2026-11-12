@@ -1505,6 +1505,94 @@ body{position:relative;isolation:isolate}
 @media(max-width:600px){.msbg-panel{padding:14px}.msbg-preview{aspect-ratio:4/3;min-height:130px}.msbg-actions .msbg-btn{flex:1 1 130px}}
 @media(prefers-reduced-motion:reduce){.msbg-panel *{scroll-behavior:auto!important;transition:none!important}}
 </style>
+<style id="ms-onboarding-mobile-fix">
+/* MIND SAFE 2.3.1 · onboarding adaptable y visual renovado */
+html.ms-onboarding-open,html.ms-onboarding-open body{overflow:hidden!important;overscroll-behavior:none!important}
+#onboardingOverlay.ms-onboarding-overlay{
+  position:fixed;inset:0;z-index:10000;display:flex;flex-direction:column;
+  align-items:center;justify-content:flex-start;overflow-x:hidden;overflow-y:auto;
+  -webkit-overflow-scrolling:touch;overscroll-behavior-y:contain;touch-action:pan-y;
+  padding:calc(15px + env(safe-area-inset-top)) 14px calc(18px + env(safe-area-inset-bottom));
+  background:radial-gradient(circle at 12% 10%,rgba(190,177,232,.48),transparent 34%),
+             radial-gradient(circle at 92% 86%,rgba(156,218,190,.42),transparent 34%),
+             linear-gradient(145deg,#F4F0FC 0%,#F7FAF9 54%,#FFF5F6 100%);
+  animation:ms-onb-fade .24s ease both;scrollbar-width:thin;scrollbar-color:#B9AED8 transparent;
+}
+#onboardingOverlay.ms-onboarding-overlay::before,#onboardingOverlay.ms-onboarding-overlay::after{
+  content:"";position:fixed;pointer-events:none;border-radius:50%;filter:blur(2px);opacity:.45;z-index:0
+}
+#onboardingOverlay.ms-onboarding-overlay::before{width:190px;height:190px;top:-85px;right:-55px;background:rgba(155,138,196,.22)}
+#onboardingOverlay.ms-onboarding-overlay::after{width:170px;height:170px;bottom:-75px;left:-65px;background:rgba(127,191,163,.2)}
+.ms-onboarding-card{
+  position:relative;z-index:1;width:min(100%,480px);flex:0 0 auto;margin-block:auto;
+  padding:clamp(20px,5vw,31px);border-radius:30px;
+  border:1px solid rgba(255,255,255,.88);
+  background:rgba(255,255,255,.91);color:#2B3350;
+  box-shadow:0 28px 80px rgba(61,54,99,.16),0 3px 12px rgba(61,54,99,.06),inset 0 1px 0 #fff;
+  -webkit-backdrop-filter:blur(22px) saturate(145%);backdrop-filter:blur(22px) saturate(145%);
+  animation:ms-onb-rise .42s cubic-bezier(.2,.8,.2,1) both;
+}
+.ms-onboarding-brand{display:flex;align-items:center;gap:12px;margin-bottom:22px;min-width:0}
+.ms-onboarding-logo{display:block;width:60px;height:60px;object-fit:cover;border-radius:17px;box-shadow:0 8px 20px rgba(122,102,172,.16);flex:none}
+.ms-onboarding-brand-copy{display:flex;flex-direction:column;gap:3px;min-width:0}
+.ms-onboarding-brand-copy strong{font-family:var(--font-display);font-size:1rem;letter-spacing:.025em;font-weight:900;color:#2B3350}
+.ms-onboarding-brand-copy span{font-size:.61rem;font-weight:900;letter-spacing:.15em;color:#8173A7}
+.ms-onboarding-version{margin-left:auto;align-self:flex-start;padding:6px 9px;border-radius:99px;background:#F0ECF9;color:#77669F;font-size:.64rem;font-weight:900;letter-spacing:.04em;white-space:nowrap}
+.ms-onboarding-intro{margin-bottom:21px}
+.ms-onboarding-kicker{display:inline-flex;align-items:center;gap:7px;margin-bottom:10px;color:#806EAB;font-size:.66rem;font-weight:900;letter-spacing:.15em}
+.ms-onboarding-kicker i{width:7px;height:7px;border-radius:50%;background:#83BDA1;box-shadow:0 0 0 4px rgba(131,189,161,.16)}
+.ms-onboarding-intro h1{font-family:var(--font-display);font-size:clamp(1.55rem,6vw,2rem);line-height:1.13;letter-spacing:-.045em;font-weight:900;color:#2B3350;margin:0 0 8px}
+.ms-onboarding-intro p{max-width:390px;color:#707792;font-size:.88rem;line-height:1.6;margin:0}
+.ms-onboarding-form{display:grid;gap:16px}
+.ms-onboarding-fields{display:grid;grid-template-columns:minmax(0,1fr) minmax(112px,.58fr);gap:11px}
+.ms-onboarding-field{display:grid;gap:7px;min-width:0;color:#525B78;font-size:.75rem;font-weight:850}
+.ms-onboarding-field>span{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.ms-onboarding-field small{font-size:.63rem;font-weight:700;color:#8B91A7}
+.ms-onboarding-field input{width:100%;min-width:0;min-height:51px;padding:12px 14px;border:1.5px solid #E5E1F0;border-radius:14px;background:#FBFAFE;color:#2B3350;font:500 16px/1.3 var(--font-body);outline:none;transition:border-color .2s,box-shadow .2s,background .2s}
+.ms-onboarding-field input::placeholder{color:#A0A5B7}
+.ms-onboarding-field input:focus{border-color:#8D7ABD;background:#fff;box-shadow:0 0 0 4px rgba(141,122,189,.13)}
+.ms-onboarding-notice{padding:16px;border:1px solid #E9E4F3;border-radius:19px;background:linear-gradient(145deg,#FCFBFF,#F8FBFA)}
+.ms-onboarding-notice-head{display:flex;align-items:center;gap:10px;margin-bottom:13px}
+.ms-onboarding-notice-icon{display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:#EEE9F8;color:#806EAB;font-size:1.05rem;flex:none}
+.ms-onboarding-notice-head h2{font-family:var(--font-display);font-size:.9rem;font-weight:900;color:#343B59;margin:0 0 2px}
+.ms-onboarding-notice-head p{font-size:.68rem;color:#858BA1;line-height:1.4;margin:0}
+.ms-onboarding-points{display:grid;gap:11px;list-style:none!important;padding:0!important;margin:0 0 15px!important}
+.ms-onboarding-points li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;align-items:start;color:#747B92;font-size:.73rem;line-height:1.52}
+.ms-onboarding-points li>span:first-child{font-size:.95rem;line-height:1.35}
+.ms-onboarding-points b{color:#3C4562;font-weight:850}
+.ms-onboarding-consent{position:relative;display:grid;grid-template-columns:21px minmax(0,1fr);align-items:start;gap:10px;padding:13px 12px;border:1.5px solid #DCD4EE;border-radius:14px;background:#F0ECF9;color:#414967;font-size:.74rem;font-weight:750;line-height:1.5;cursor:pointer}
+.ms-onboarding-consent input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.ms-onboarding-check-ui{width:20px;height:20px;border:1.7px solid #9586B9;border-radius:6px;background:#fff;display:grid;place-items:center;margin-top:1px;flex:none}
+.ms-onboarding-consent input:checked+.ms-onboarding-check-ui{background:#7966A9;border-color:#7966A9}
+.ms-onboarding-consent input:checked+.ms-onboarding-check-ui::after{content:"✓";font-size:14px;line-height:1;color:#fff;font-weight:900}
+.ms-onboarding-consent input:focus-visible+.ms-onboarding-check-ui{outline:3px solid rgba(121,102,169,.28);outline-offset:3px}
+.ms-onboarding-error{margin:-4px 0 0;padding:10px 12px;border-radius:12px;background:#FFF0F1;border:1px solid #F0C8CE;color:#914C5B;font-size:.75rem;font-weight:750;line-height:1.45}
+.ms-onboarding-submit{width:100%;min-height:54px;display:flex;align-items:center;justify-content:center;gap:12px;padding:14px 18px;border:0;border-radius:15px;background:linear-gradient(115deg,#7966A9 0%,#8E82C0 52%,#6DAB91 100%);color:#fff;font-size:.92rem;font-weight:900;letter-spacing:.005em;box-shadow:0 9px 22px rgba(121,102,169,.25);transition:transform .2s,box-shadow .2s,filter .2s}
+.ms-onboarding-submit span:last-child{font-size:1.2rem;transition:transform .2s}
+.ms-onboarding-submit:hover{transform:translateY(-2px);box-shadow:0 13px 27px rgba(121,102,169,.29);filter:saturate(1.06)}
+.ms-onboarding-submit:hover span:last-child{transform:translateX(3px)}
+.ms-onboarding-submit:active{transform:scale(.985)}
+.ms-onboarding-submit:focus-visible{outline:3px solid #8D7ABD;outline-offset:4px}
+.ms-onboarding-foot{text-align:center;color:#9298AB;font-size:.65rem;line-height:1.5;margin:0;padding:0 8px}
+#onboardingOverlay.is-closing{opacity:0;pointer-events:none;transition:opacity .24s ease}
+#onboardingOverlay.is-closing .ms-onboarding-card{transform:translateY(12px) scale(.985);transition:transform .24s ease}
+@keyframes ms-onb-fade{from{opacity:0}to{opacity:1}}
+@keyframes ms-onb-rise{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:480px){
+  #onboardingOverlay.ms-onboarding-overlay{padding-left:11px;padding-right:11px;padding-top:calc(10px + env(safe-area-inset-top));padding-bottom:calc(12px + env(safe-area-inset-bottom))}
+  .ms-onboarding-card{border-radius:24px;padding:20px 17px;margin-block:0}
+  .ms-onboarding-brand{margin-bottom:17px}.ms-onboarding-logo{width:52px;height:52px;border-radius:15px}
+  .ms-onboarding-intro{margin-bottom:17px}.ms-onboarding-form{gap:13px}
+  .ms-onboarding-fields{grid-template-columns:minmax(0,1fr) 112px;gap:9px}
+  .ms-onboarding-notice{padding:13px;border-radius:16px}.ms-onboarding-points{gap:9px;margin-bottom:12px!important}
+  .ms-onboarding-points li{font-size:.7rem}.ms-onboarding-consent{padding:11px;font-size:.71rem}
+  .ms-onboarding-submit{min-height:52px}
+}
+@media(max-width:350px){.ms-onboarding-fields{grid-template-columns:1fr}.ms-onboarding-version{font-size:.58rem}.ms-onboarding-card{padding:18px 14px}}
+@media(max-height:650px){.ms-onboarding-card{margin-block:0}.ms-onboarding-brand{margin-bottom:12px}.ms-onboarding-logo{width:46px;height:46px}.ms-onboarding-intro{margin-bottom:12px}.ms-onboarding-form{gap:11px}}
+@media(prefers-reduced-motion:reduce){#onboardingOverlay.ms-onboarding-overlay,.ms-onboarding-card{animation:none!important;transition:none!important}.ms-onboarding-submit{transition:none!important}}
+</style>
+
 </head>
 <body>
 
@@ -1527,7 +1615,7 @@ body{position:relative;isolation:isolate}
 <header class="top-app-bar" id="topAppBar">
   <div class="top-app-bar__brand" onclick="irA('inicio')" role="button" tabindex="0" title="MIND SAFE · Inicio" aria-label="Ir al inicio">
     <div class="top-app-bar__logo-wrap">
-      <img src="logo-mark.png" alt="Símbolo de MIND SAFE" class="top-app-bar__img" onerror="this.onerror=null;this.parentElement.dataset.logoFallback='1';this.remove();">
+      <img src="./logo-mark.png" alt="Símbolo de MIND SAFE" class="top-app-bar__img" onerror="this.onerror=null;this.parentElement.dataset.logoFallback='1';this.remove();">
     </div>
     <div class="top-app-bar__titles">
       <h1 class="top-app-bar__title">MIND SAFE</h1>
@@ -2037,7 +2125,7 @@ body{position:relative;isolation:isolate}
    Una sola clave, un solo objeto, con número de versión y
    migración automática desde el formato anterior.
    ============================================================= */
-const APP_VERSION='2.3.0';
+const APP_VERSION='2.3.1';
 const DB_VERSION=2;
 const DB_KEY='mindsafe';
 
@@ -5138,78 +5226,124 @@ pintarPatrones();pintarMuro();pintarPanel();pintarEspacio();pintarPlayer();
 
 /* ============ ONBOARDING · Bienvenida ============ */
 function mostrarOnboarding(){
+  // El onboarding es una capa desplazable independiente: nunca debe bloquear
+  // el acceso al consentimiento ni al botón en pantallas móviles pequeñas.
+  if(document.getElementById('onboardingOverlay'))return;
   const overlay=document.createElement('div');
   overlay.id='onboardingOverlay';
-  overlay.style.cssText='position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:grid;place-items:center;padding:20px;animation:fade-up .4s var(--ease) both';
+  overlay.className='ms-onboarding-overlay';
+  overlay.setAttribute('role','presentation');
   overlay.innerHTML=`
-    <div style="width:100%;max-width:420px;background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(24px) saturate(140%);-webkit-backdrop-filter:blur(24px) saturate(140%);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);padding:32px 26px;animation:fade-up .45s var(--ease) both">
-      <div style="text-align:center;margin-bottom:20px">
-        <div style="width:100px;margin:0 auto 8px">${mascota('ajolote','feliz')}</div>
-        <p style="font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:6px">Hackathon RFA 2026</p>
-        <h1 style="font-family:var(--font-display);font-size:1.8rem;font-weight:800;margin-bottom:4px">Bienvenido a MIND SAFE</h1>
-        <p style="color:var(--text-soft);font-size:.92rem">Tu espacio seguro de bienestar emocional.<br>Cuéntanos un poco de ti para personalizar tu experiencia.</p>
+    <section class="ms-onboarding-card" role="dialog" aria-modal="true" aria-labelledby="onbTitle" aria-describedby="onbDescription">
+      <div class="ms-onboarding-brand">
+        <img class="ms-onboarding-logo" src="./logo-mark.png" alt="" width="76" height="76">
+        <div class="ms-onboarding-brand-copy"><strong>MIND SAFE</strong><span>BIENESTAR EMOCIONAL</span></div>
+        <span class="ms-onboarding-version">V2.3.1</span>
       </div>
-      <label style="display:block;margin-bottom:12px">
-        <span style="font-size:.82rem;font-weight:700;color:var(--text-soft);display:block;margin-bottom:5px">Tu nombre completo</span>
-        <input id="onbNombre" type="text" placeholder="¿Cómo te llamas?" style="width:100%;padding:13px 16px;border:2px solid var(--line);border-radius:var(--radius);background:var(--surface-alt);font-family:inherit;font-size:1rem;color:var(--text)" autocomplete="name">
-      </label>
-      <label style="display:block;margin-bottom:18px">
-        <span style="font-size:.82rem;font-weight:700;color:var(--text-soft);display:block;margin-bottom:5px">Tu edad</span>
-        <input id="onbEdad" type="number" placeholder="Edad" min="10" max="99" oninput="if(this.value.length > 2) this.value = this.value.slice(0,2);" style="width:100%;padding:13px 16px;border:2px solid var(--line);border-radius:var(--radius);background:var(--surface-alt);font-family:inherit;font-size:1rem;color:var(--text)">
-      </label>
-      <div style="background:var(--surface-alt);border:1px solid var(--line);border-radius:var(--radius);padding:14px 15px;margin-bottom:16px">
-        <p style="font-size:.74rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--p-lavanda-h);margin-bottom:8px">Antes de empezar</p>
-        <ul style="list-style:none;padding:0;margin:0 0 12px;display:grid;gap:7px">
-          <li style="font-size:.84rem;line-height:1.5;color:var(--text-soft)">🔒 <b style="color:var(--text)">Tus registros se almacenan localmente en este navegador.</b> No se cifran automáticamente; protege el dispositivo y los archivos de respaldo.</li>
-          <li style="font-size:.84rem;line-height:1.5;color:var(--text-soft)">🩺 <b style="color:var(--text)">Esto no es un diagnóstico</b> ni reemplaza a un profesional de salud mental.</li>
-          <li style="font-size:.84rem;line-height:1.5;color:var(--text-soft)">🫂 Si escribes algo que preocupa, te mostraremos la <b style="color:var(--text)">Línea 113</b> y la opción de avisar a alguien de confianza.</li>
-        </ul>
-        <label style="display:flex;gap:9px;align-items:flex-start;cursor:pointer">
-          <input id="onbConsent" type="checkbox" style="margin-top:3px;width:18px;height:18px;accent-color:var(--p-lavanda);flex:none">
-          <span style="font-size:.86rem;line-height:1.45;color:var(--text)">Entiendo y quiero usar MIND SAFE. Si soy menor de edad, sé que puedo pedir ayuda a una persona adulta de confianza cuando lo necesite.</span>
-        </label>
+
+      <div class="ms-onboarding-intro">
+        <span class="ms-onboarding-kicker"><i aria-hidden="true"></i> UN ESPACIO PARA TI</span>
+        <h1 id="onbTitle">Qué bueno tenerte aquí.</h1>
+        <p id="onbDescription">Vamos a preparar tu espacio personal. Solo necesitamos algunos datos para adaptar tu experiencia.</p>
       </div>
-      <button id="onbContinuar" class="btn-primary" style="margin-bottom:10px">Continuar</button>
-      <button id="onbGoogle" class="btn-ghost" style="margin-top:0;display:flex;align-items:center;justify-content:center;gap:10px">
-        <svg width="20" height="20" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-        Continuar con Google (demo)
-      </button>
-    </div>`;
+
+      <form id="onbForm" class="ms-onboarding-form" novalidate>
+        <div class="ms-onboarding-fields">
+          <label class="ms-onboarding-field" for="onbNombre">
+            <span>¿Cómo te llamas?</span>
+            <input id="onbNombre" name="name" type="text" placeholder="Tu nombre" autocomplete="name" maxlength="70" required>
+          </label>
+          <label class="ms-onboarding-field" for="onbEdad">
+            <span>¿Cuántos años tienes? <small>Opcional</small></span>
+            <input id="onbEdad" name="age" type="number" placeholder="Tu edad" min="10" max="99" step="1" inputmode="numeric" autocomplete="off">
+          </label>
+        </div>
+
+        <section class="ms-onboarding-notice" aria-labelledby="onbNoticeTitle">
+          <div class="ms-onboarding-notice-head">
+            <span class="ms-onboarding-notice-icon" aria-hidden="true">✦</span>
+            <div><h2 id="onbNoticeTitle">Antes de comenzar</h2><p>Queremos que sepas cómo funciona este espacio.</p></div>
+          </div>
+          <ul class="ms-onboarding-points">
+            <li><span aria-hidden="true">🔐</span><span><b>Tus datos se guardan en este navegador.</b> No se envían a una cuenta ni se sincronizan automáticamente. Quien tenga acceso a este dispositivo podría verlos.</span></li>
+            <li><span aria-hidden="true">🌿</span><span><b>Es una herramienta de orientación.</b> MIND SAFE no realiza diagnósticos ni sustituye la atención de profesionales.</span></li>
+            <li><span aria-hidden="true">🤝</span><span><b>No tienes que afrontar todo a solas.</b> Encontrarás opciones para pedir apoyo a una persona de confianza y consultar recursos de ayuda.</span></li>
+          </ul>
+          <label class="ms-onboarding-consent" for="onbConsent">
+            <input id="onbConsent" name="consent" type="checkbox" required>
+            <span class="ms-onboarding-check-ui" aria-hidden="true"></span>
+            <span>He leído la información anterior, comprendo los límites de MIND SAFE y deseo continuar.</span>
+          </label>
+        </section>
+
+        <p id="onbError" class="ms-onboarding-error" role="alert" aria-live="assertive" hidden></p>
+        <button id="onbContinuar" class="ms-onboarding-submit" type="submit">
+          <span>Entrar a mi espacio</span><span aria-hidden="true">→</span>
+        </button>
+        <p class="ms-onboarding-foot">Sin registro externo · Sin cuenta de Google · Tus datos permanecen en este navegador.</p>
+      </form>
+    </section>`;
+  document.documentElement.classList.add('ms-onboarding-open');
   document.body.appendChild(overlay);
+
+  const form=overlay.querySelector('#onbForm');
+  const nameInput=overlay.querySelector('#onbNombre');
+  const ageInput=overlay.querySelector('#onbEdad');
+  const consent=overlay.querySelector('#onbConsent');
+  const error=overlay.querySelector('#onbError');
+  const submit=overlay.querySelector('#onbContinuar');
+
+  function showError(message,target){
+    error.textContent=message;
+    error.hidden=false;
+    if(target){
+      target.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});
+      target.focus({preventScroll:true});
+    }
+  }
+  function clearError(){error.hidden=true;error.textContent='';}
+  [nameInput,ageInput,consent].forEach(control=>control.addEventListener('input',clearError));
 
   function cerrarOnboarding(nombre,edad){
     DB.perfil.nombre=nombre?nombrePerfilCompleto(nombre):null;
-    if(edad)DB.perfil.nacimiento=String(new Date().getFullYear()-parseInt(edad));
-    DB.perfil.esMenor=edad?parseInt(edad)<18:null;
+    if(edad)DB.perfil.nacimiento=String(new Date().getFullYear()-parseInt(edad,10));
+    DB.perfil.esMenor=edad?parseInt(edad,10)<18:null;
     DB.perfil.consentimiento={fecha:hoy(),hora:horaLocal(),version:APP_VERSION};
-    save();
-    overlay.style.opacity='0';overlay.style.transform='scale(.96)';
-    overlay.style.transition='all .3s var(--ease)';
-    setTimeout(()=>overlay.remove(),350);
+    const saved=save();
+    if(saved===false){
+      showError('No se pudieron guardar tus datos. Revisa el espacio disponible del navegador e inténtalo otra vez.',submit);
+      return false;
+    }
+    overlay.classList.add('is-closing');
+    document.documentElement.classList.remove('ms-onboarding-open');
+    setTimeout(()=>overlay.remove(),260);
     saludo();
+    return true;
   }
 
-  document.getElementById('onbContinuar').onclick=()=>{
-    const nombre=document.getElementById('onbNombre').value.trim();
-    const edad=document.getElementById('onbEdad').value.trim();
-    if(!document.getElementById('onbConsent').checked){toast('Marca la casilla para continuar.');document.getElementById('onbConsent').focus();return;}
-    if(!nombre){document.getElementById('onbNombre').focus();return;}
+  form.addEventListener('submit',event=>{
+    event.preventDefault();
+    clearError();
+    const nombre=nameInput.value.trim();
+    const edad=ageInput.value.trim();
+    if(!nombre){showError('Escribe tu nombre para continuar.',nameInput);return;}
     if(edad!==''){
-      const nEdad=parseInt(edad,10);
-      if(isNaN(nEdad)||nEdad<10||nEdad>99){
-        toast('Por favor, ingresa una edad válida (entre 10 y 99 años)');
-        return;
-      }
+      const nEdad=Number(edad);
+      if(!Number.isInteger(nEdad)||nEdad<10||nEdad>99){showError('La edad debe ser un número entero entre 10 y 99 años.',ageInput);return;}
     }
-    cerrarOnboarding(nombre,edad);
-    toast('¡Hola, '+(DB.perfil.nombre||nombre)+'! Empecemos.');
-  };
-  document.getElementById('onbGoogle').onclick=()=>{
-    if(!document.getElementById('onbConsent').checked){toast('Marca la casilla para continuar.');return;}
-    cerrarOnboarding('Ana','19');
-    toast('¡Bienvenida, Ana! (datos de demostración)');
-  };
+    if(!consent.checked){showError('Lee la información y marca la casilla para confirmar que deseas continuar.',consent);return;}
+    if(cerrarOnboarding(nombre,edad))toast('¡Hola, '+(DB.perfil.nombre||nombre)+'! Empecemos.');
+  });
+
+  // La tarjeta queda centrada cuando cabe y el propio panel se desplaza cuando no.
+  overlay.addEventListener('click',event=>{
+    if(event.target===overlay){
+      // No cerrar al tocar el fondo: así no se pierde ni se salta el consentimiento.
+      event.preventDefault();
+    }
+  });
 }
+
 
 if(!DB.perfil.nombre) mostrarOnboarding();
 
