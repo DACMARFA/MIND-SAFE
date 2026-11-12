@@ -1593,6 +1593,46 @@ html.ms-onboarding-open,html.ms-onboarding-open body{overflow:hidden!important;o
 @media(prefers-reduced-motion:reduce){#onboardingOverlay.ms-onboarding-overlay,.ms-onboarding-card{animation:none!important;transition:none!important}.ms-onboarding-submit{transition:none!important}}
 </style>
 
+
+<style id="msx-v233-checkin-install-styles">
+/* MIND SAFE 2.3.3 · navegación del check-in e instalación guiada */
+#dialogo{scroll-margin-top:100px}
+#dlgCuerpo{scroll-margin-top:100px;scroll-padding-bottom:calc(120px + env(safe-area-inset-bottom))}
+#dlgCuerpo .screen__title{scroll-margin-top:100px}
+.msx-install-banner{display:flex;align-items:center;gap:12px;margin:-7px 0 20px;padding:12px 15px;border:1px solid color-mix(in srgb,var(--accent) 25%,var(--line));border-radius:18px;background:linear-gradient(115deg,color-mix(in srgb,var(--surface) 91%,var(--accent-soft)),color-mix(in srgb,var(--surface) 82%,var(--accent-2)));box-shadow:var(--shadow-sm)}
+.msx-install-symbol{width:42px;height:42px;flex:none;display:grid;place-items:center;border-radius:13px;background:var(--accent-soft);font-size:1.35rem}
+.msx-install-copy{display:grid;gap:3px;min-width:0;flex:1}
+.msx-install-copy b{font-size:.83rem;font-weight:900;color:var(--text)}
+.msx-install-copy small{font-size:.72rem;line-height:1.45;color:var(--text-soft)}
+.msx-install-open{min-height:42px;flex:none;padding:9px 14px;border:1px solid var(--accent);border-radius:12px;background:var(--surface);color:var(--accent-strong);font-size:.75rem;font-weight:900}
+.msx-install-open:hover{background:var(--accent);color:#fff}
+.msx-install-banner.is-installed{border-color:var(--exito)}
+#msx-install-modal[hidden]{display:none!important}
+#msx-install-modal{position:fixed;inset:0;z-index:300;background:rgba(22,26,44,.62);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:grid;place-items:center;overflow-y:auto;padding: max(16px,env(safe-area-inset-top)) 14px max(18px,env(safe-area-inset-bottom))}
+.msx-install-dialog{width:min(560px,100%);max-height:calc(100dvh - 34px);overflow-y:auto;overscroll-behavior:contain;padding:clamp(18px,4vw,26px);border-radius:25px;background:var(--surface);color:var(--text);border:1px solid var(--line);box-shadow:0 28px 90px rgba(0,0,0,.32)}
+.msx-install-dialog-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.msx-install-dialog-head h2{font-family:var(--font-display);font-size:clamp(1.25rem,4vw,1.65rem);line-height:1.2;margin-top:6px;letter-spacing:-.035em}
+.msx-install-close{width:40px;height:40px;flex:none;border-radius:12px;background:var(--surface-alt);border:1px solid var(--line);font-size:1rem}
+.msx-install-intro{font-size:.86rem;line-height:1.6;color:var(--text-soft);margin:12px 0 16px}
+.msx-install-platform{padding:15px;margin-top:12px;border:1px solid var(--line);border-radius:17px;background:var(--surface-alt)}
+.msx-install-platform.is-primary{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 12%,transparent)}
+.msx-install-platform-title{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.msx-install-platform-title>span{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:var(--accent-soft);font-size:1.25rem}
+.msx-install-platform-title b{display:block;font-size:.86rem}
+.msx-install-platform-title small{display:block;color:var(--text-soft);font-size:.7rem;margin-top:2px}
+.msx-install-platform ol{padding-left:22px;display:grid;gap:8px}
+.msx-install-platform li{font-size:.8rem;line-height:1.5;padding-left:2px}
+.msx-install-platform li::marker{color:var(--accent);font-weight:900}
+.msx-install-tip{margin-top:12px;padding:10px 12px;border-radius:11px;background:color-mix(in srgb,var(--accent-soft) 65%,transparent);color:var(--text-soft);font-size:.72rem;line-height:1.55}
+.msx-install-foot{margin-top:14px;color:var(--text-soft);font-size:.68rem;line-height:1.55}
+.msx-install-now{width:100%;min-height:50px;margin:0 0 7px;padding:12px 16px;border:0;border-radius:14px;background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#fff;font-size:.88rem;font-weight:900;box-shadow:0 8px 20px color-mix(in srgb,var(--accent) 24%,transparent)}
+.msx-install-now:disabled{opacity:.65}
+.msx-install-auto-note{margin:0 0 8px;color:var(--text-soft);font-size:.7rem;line-height:1.45}
+body.msx-install-open{overflow:hidden}
+@media(max-width:520px){.msx-install-banner{align-items:flex-start;flex-wrap:wrap;padding:11px 12px}.msx-install-copy{flex-basis:calc(100% - 58px)}.msx-install-open{width:100%;min-height:46px}.msx-install-dialog{border-radius:21px}.msx-install-platform{padding:13px}}
+@media(prefers-reduced-motion:reduce){#msx-install-modal *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
+
 </head>
 <body>
 
@@ -2125,7 +2165,7 @@ html.ms-onboarding-open,html.ms-onboarding-open body{overflow:hidden!important;o
    Una sola clave, un solo objeto, con número de versión y
    migración automática desde el formato anterior.
    ============================================================= */
-const APP_VERSION='2.3.1';
+const APP_VERSION='2.3.3';
 const DB_VERSION=2;
 const DB_KEY='mindsafe';
 
@@ -2922,6 +2962,27 @@ function irNodo(id,push){
   pintarNodo();
 }
 
+/* Evita que cada respuesta del check-in devuelva la página al inicio.
+   Alinea el paso activo debajo de la barra superior fija, respetando el
+   movimiento reducido y las alturas variables de los navegadores móviles. */
+let _primeraPintadaDialogo=true;
+function desplazarVistaAElemento(elemento){
+  if(!elemento)return;
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    const rect=elemento.getBoundingClientRect();
+    const topbar=document.getElementById('topAppBar');
+    const topbarRect=topbar?topbar.getBoundingClientRect():null;
+    const offset=topbarRect&&topbarRect.bottom>0&&topbarRect.top<window.innerHeight
+      ?Math.min(topbarRect.bottom+14,150):18;
+    const destino=Math.max(0,window.scrollY+rect.top-offset);
+    window.scrollTo({top:destino,behavior:reduce?'auto':'smooth'});
+  }));
+}
+window.mindSafeScrollToCheckin=function(){
+  desplazarVistaAElemento(document.getElementById('dlgCuerpo')||document.getElementById('dialogo'));
+};
+
 function pintarNodo(){
   const n=DIALOGO[nodoActual];
   const c=$('dlgCuerpo');
@@ -3027,7 +3088,10 @@ function pintarNodo(){
     }));
   }
 
-  window.scrollTo({top:0,behavior:'smooth'});
+  // La primera representación ocurre al cargar la app y no debe mover la página.
+  // A partir de la primera interacción, cada paso se mantiene visible.
+  if(_primeraPintadaDialogo)_primeraPintadaDialogo=false;
+  else desplazarVistaAElemento($('dlgCuerpo'));
 }
 
 function guardarResp(nodo,val){
@@ -3179,7 +3243,7 @@ function construirPlan(){
   $('planReset').onclick=reiniciarDialogo;
   pintarEspacio();pintarMuro();
   toast('Registrado. Gracias por cuidarte hoy.');
-  window.scrollTo({top:0,behavior:'smooth'});
+  desplazarVistaAElemento($('plan'));
 }
 
 function reiniciarDialogo(){
@@ -4930,8 +4994,9 @@ function avisarActualizacion(){
 let promptInstalar=null;
 window.addEventListener('beforeinstallprompt',e=>{
   e.preventDefault();promptInstalar=e;pintarInstalar();
+  if(typeof window.msxRefreshInstallGuide==='function')window.msxRefreshInstallGuide();
 });
-window.addEventListener('appinstalled',()=>{promptInstalar=null;pintarInstalar();toast('MIND SAFE instalada')});
+window.addEventListener('appinstalled',()=>{promptInstalar=null;pintarInstalar();if(typeof window.msxRefreshInstallGuide==='function')window.msxRefreshInstallGuide();toast('MIND SAFE instalada')});
 
 function esInstalada(){
   return window.matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
@@ -5238,7 +5303,7 @@ function mostrarOnboarding(){
       <div class="ms-onboarding-brand">
         <img class="ms-onboarding-logo" src="./logo-mark.png" alt="" width="76" height="76">
         <div class="ms-onboarding-brand-copy"><strong>MIND SAFE</strong><span>BIENESTAR EMOCIONAL</span></div>
-        <span class="ms-onboarding-version">V2.3.1</span>
+        <span class="ms-onboarding-version">V2.3.3</span>
       </div>
 
       <div class="ms-onboarding-intro">
@@ -6799,7 +6864,13 @@ html[data-msx-reduce-motion="true"] *,html[data-msx-reduce-motion="true"] *:befo
 
   function safeAction(action){
     if(action==='checkin'){
-      const target=$('dialogo');if(target){target.setAttribute('tabindex','-1');target.scrollIntoView({behavior:reducedMotion()?'auto':'smooth',block:'start'});target.querySelector('button:not([disabled]):not(.hidden),input:not([disabled]):not([type=hidden])')?.focus({preventScroll:true});}
+      const target=$('dlgCuerpo')||$('dialogo');
+      if(target){
+        target.setAttribute('tabindex','-1');
+        if(typeof window.mindSafeScrollToCheckin==='function')window.mindSafeScrollToCheckin();
+        else target.scrollIntoView({behavior:reducedMotion()?'auto':'smooth',block:'start'});
+        requestAnimationFrame(()=>target.querySelector('button:not([disabled]):not(.hidden),input:not([disabled]):not([type=hidden])')?.focus({preventScroll:true}));
+      }
     }else if(action==='calma'){
       if(typeof window.irA==='function')window.irA('herramientas',true);
     }else if(action==='chat'){
@@ -6856,6 +6927,72 @@ html[data-msx-reduce-motion="true"] *,html[data-msx-reduce-motion="true"] *:befo
     $('msx-week-records').textContent=String(week.length);$('msx-week-days').textContent=String(days);
     $('msx-current-streak').textContent=String(Number(DB?.racha?.cur||0));
     const pill=$('msx-connectivity');if(pill){const offline=!navigator.onLine;pill.classList.toggle('offline',offline);pill.querySelector('span:last-child').textContent=offline?'Modo sin conexión':'Disponible';}
+  }
+
+  function appIsInstalled(){
+    return window.matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+  }
+  function installPlatform(){
+    const ua=navigator.userAgent||'';
+    const ios=/iPhone|iPad|iPod/i.test(ua)||(/Macintosh/i.test(ua)&&navigator.maxTouchPoints>1);
+    const android=/Android/i.test(ua);
+    const chrome=/Chrome\//i.test(ua)&&!/Edg\//i.test(ua);
+    return {ios,android,chrome};
+  }
+  function buildInstallGuide(){
+    if($('msx-install-banner'))return;
+    const hub=$('msx-home-hub');if(!hub)return;
+    const banner=document.createElement('section');
+    banner.id='msx-install-banner';
+    banner.className='msx-install-banner';
+    banner.hidden=appIsInstalled();
+    banner.setAttribute('aria-label','Instala MIND SAFE en tu dispositivo');
+    banner.innerHTML=`
+      <div class="msx-install-symbol" aria-hidden="true">📲</div>
+      <div class="msx-install-copy"><b>Ten MIND SAFE siempre a mano</b><small>Instálala en la pantalla de inicio de tu teléfono y ábrela como una app.</small></div>
+      <button type="button" class="msx-install-open" id="msx-install-guide-open">Cómo instalar</button>`;
+    hub.insertAdjacentElement('afterend',banner);
+
+    const modal=document.createElement('div');
+    modal.id='msx-install-modal';modal.hidden=true;
+    modal.innerHTML=`
+      <section class="msx-install-dialog" role="dialog" aria-modal="true" aria-labelledby="msx-install-title" aria-describedby="msx-install-intro">
+        <div class="msx-install-dialog-head"><div><span class="msx-mini-label">MIND SAFE EN TU TELÉFONO</span><h2 id="msx-install-title">Instálala en tu pantalla de inicio</h2></div><button type="button" class="msx-install-close" id="msx-install-close" aria-label="Cerrar guía">✕</button></div>
+        <p id="msx-install-intro" class="msx-install-intro">Así podrás abrir MIND SAFE desde un icono, sin tener que buscar el enlace cada vez. No necesitas descargarla desde una tienda.</p>
+        <div id="msx-install-prompt-slot"></div>
+        <article class="msx-install-platform" id="msx-install-android"><div class="msx-install-platform-title"><span>🤖</span><div><b>Android · Google Chrome</b><small>La opción recomendada para teléfonos Android</small></div></div><ol><li>Abre el enlace de MIND SAFE directamente en <b>Google Chrome</b>.</li><li>Toca los <b>tres puntos ⋮</b> de la esquina superior derecha.</li><li>Busca <b>«Instalar y crear acceso directo»</b> o <b>«Instalar app»</b> (el nombre puede variar según Chrome y el dispositivo).</li><li>Pulsa <b>Instalar</b> y confirma. Si solo aparece <b>«Añadir a pantalla de inicio»</b> o <b>«Crear acceso directo»</b>, elige esa opción.</li></ol><p class="msx-install-tip">Si no aparece la opción, comprueba que estás en Chrome, que la página se ha abierto con HTTPS y vuelve a cargarla. En algunos teléfonos el navegador muestra «Crear acceso directo» en lugar de «Instalar aplicación».</p></article>
+        <article class="msx-install-platform" id="msx-install-ios"><div class="msx-install-platform-title"><span>🍎</span><div><b>iPhone · Safari</b><small>En iPhone se añade desde el menú Compartir</small></div></div><ol><li>Abre el enlace de MIND SAFE en <b>Safari</b>.</li><li>Toca el botón <b>Compartir</b> (cuadro con flecha hacia arriba).</li><li>Desliza las opciones y elige <b>«Añadir a pantalla de inicio»</b> o <b>«Añadir a Inicio»</b>.</li><li>Activa <b>«Abrir como app web»</b> si aparece y confirma con <b>Añadir</b>.</li></ol><p class="msx-install-tip">En iPhone, realiza estos pasos desde Safari; otros navegadores pueden ofrecer opciones distintas.</p></article>
+        <p class="msx-install-foot">La instalación crea un acceso a la aplicación web. Tus registros siguen guardándose en el navegador de ese dispositivo y no se sincronizan automáticamente con otros teléfonos.</p>
+      </section>`;
+    document.body.appendChild(modal);
+
+    const open=()=>{
+      if(appIsInstalled()){toastMsg('MIND SAFE ya está instalada en este dispositivo.');return;}
+      renderInstallPrompt();modal.hidden=false;document.body.classList.add('msx-install-open');$('msx-install-close')?.focus();
+    };
+    const close=()=>{modal.hidden=true;document.body.classList.remove('msx-install-open');$('msx-install-guide-open')?.focus();};
+    $('msx-install-guide-open').addEventListener('click',open);
+    $('msx-install-close').addEventListener('click',close);
+    modal.addEventListener('click',e=>{if(e.target===modal)close();});
+    modal.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();close();}});
+    window.addEventListener('appinstalled',()=>{banner.hidden=true;});
+    window.msxRefreshInstallGuide=renderInstallPrompt;
+    renderInstallPrompt();
+    function renderInstallPrompt(){
+      const slot=$('msx-install-prompt-slot');if(!slot)return;
+      const p=installPlatform();
+      $('msx-install-android').classList.toggle('is-primary',p.android);
+      $('msx-install-ios').classList.toggle('is-primary',p.ios);
+      const deferred=(typeof promptInstalar!=='undefined'&&promptInstalar);
+      slot.innerHTML=deferred?'<button type="button" class="msx-install-now" id="msx-install-now">📲 Instalar MIND SAFE ahora</button><p class="msx-install-auto-note">Tu navegador ofrece la instalación directa. También puedes seguir los pasos manuales de abajo.</p>':'';
+      const now=$('msx-install-now');if(now)now.addEventListener('click',async()=>{
+        const prompt=promptInstalar;if(!prompt)return;
+        now.disabled=true;now.textContent='Abriendo instalación…';
+        try{await prompt.prompt();const choice=await prompt.userChoice;promptInstalar=null;if(choice?.outcome==='accepted')toastMsg('MIND SAFE se está instalando.');else toastMsg('Puedes instalarla más tarde desde el menú de Chrome.');}
+        catch(error){console.warn('[MIND SAFE instalación]',error);toastMsg('Usa los pasos manuales del menú de tu navegador.');}
+        renderInstallPrompt();if(typeof pintarInstalar==='function')pintarInstalar();
+      });
+    }
   }
 
   function buildInsights(){
@@ -7006,7 +7143,7 @@ html[data-msx-reduce-motion="true"] *,html[data-msx-reduce-motion="true"] *:befo
 
   function refresh(){
     refreshQueued=false;
-    try{buildHomeHub();buildInsights();buildAccessibility();renderHomeHub();renderInsights();applyAccessibility();mountEncryptedBackup();}
+    try{buildHomeHub();buildInstallGuide();buildInsights();buildAccessibility();renderHomeHub();renderInsights();applyAccessibility();mountEncryptedBackup();}
     catch(error){console.error('[MIND SAFE 2.3]',error);}
   }
   function scheduleRefresh(){if(refreshQueued)return;refreshQueued=true;requestAnimationFrame(refresh);}
