@@ -1,0 +1,26 @@
+# MIND SAFE 2.3 · Paquete PWA
+
+## Contenido
+- `index.html`: aplicación mejorada, conserva los módulos originales.
+- `manifest.webmanifest`: identidad de instalación.
+- `sw.js`: caché offline y actualización controlada.
+- `icon-192.png` / `icon-512.png`: iconos PWA.
+- `LOGO 2.jpg`: logo de respaldo para el archivo recibido (puedes reemplazarlo por tu logo original).
+
+## Cómo probar
+1. Descomprime esta carpeta.
+2. Publica su contenido en un hosting HTTPS (por ejemplo, un sitio estático). No basta con abrir `index.html` con doble clic para instalar una PWA.
+3. Abre la dirección HTTPS desde Chrome y usa `Instalar aplicación` / `Añadir a pantalla de inicio`.
+4. Abre MIND SAFE una vez con conexión para que el service worker guarde los recursos de la aplicación. Luego prueba el modo avión.
+
+## Privacidad
+- Los registros del HTML siguen guardándose en el almacenamiento local del navegador. Eso no equivale a cifrado.
+- Se añadió una opción de respaldo cifrado AES-256-GCM con PBKDF2. La contraseña no se guarda; si la pierdes, no será posible abrir ese archivo.
+- Los archivos exportados y los informes pueden contener información privada. Revísalos antes de compartirlos.
+- Refugio sigue siendo un asistente guiado con respuestas locales; no es un servicio clínico ni de emergencia.
+
+## Nota
+El logo original `LOGO 2.jpg` no venía adjunto en el HTML subido. Se incluye una imagen de respaldo para que el paquete se vea completo; reemplázala por tu logo original si deseas conservarlo exactamente.
+
+
+LOGO PERSONALIZADO: Este paquete ya incluye tu archivo original "LOGO 2.jpg". La barra superior utiliza "logo-mark.png" (recorte del símbolo) y los iconos PWA se generaron desde ese mismo símbolo. Sube todos los archivos de este paquete a la raíz del repositorio.

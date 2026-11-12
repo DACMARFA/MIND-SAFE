@@ -1,0 +1,35 @@
+{
+  "id": "./",
+  "name": "MIND SAFE · Bienestar emocional",
+  "short_name": "MIND SAFE",
+  "description": "Herramientas de autorregistro y bienestar emocional. Los registros se guardan en este dispositivo.",
+  "lang": "es-PE",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
+  "orientation": "portrait",
+  "background_color": "#F6F4FB",
+  "theme_color": "#7A66AC",
+  "categories": [
+    "health",
+    "lifestyle"
+  ],
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
